@@ -6,6 +6,8 @@ public class cameramovement : MonoBehaviour
 {
     public CharacterController characterController;
     public float speed = 12f;
+    public float runspeed = 12f;
+    public float normalspeed = 6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +22,9 @@ public class cameramovement : MonoBehaviour
         Vector3 move = transform.right * movex + transform.forward * movez;
         characterController.Move(move * speed * Time.deltaTime);
         if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = 12f;
-        }
+            speed = runspeed;
         else
-            speed = 6f;
-
-
+            speed = normalspeed;
+        //Time.timeScale = 0;
     }
 }
