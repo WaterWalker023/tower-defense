@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6148817260837897975}
   - component: {fileID: 6148817260837897970}
   - component: {fileID: 6148817260837897969}
-  - component: {fileID: 6148817260837897968}
+  - component: {fileID: 2729666252608309352}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6148817260837897968
+--- !u!65 &2729666252608309352
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6148817261249476838}
   - component: {fileID: 6148817261249476833}
   - component: {fileID: 6148817261249476832}
-  - component: {fileID: 6148817261249476839}
+  - component: {fileID: 3927636877991051191}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -181,7 +181,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6148817261249476839
+--- !u!65 &3927636877991051191
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,7 +193,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.000015258789}
 --- !u!1 &6148817262166820688
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 6148817262166820686}
   m_Layer: 0
   m_Name: normal
-  m_TagString: Untagged
+  m_TagString: enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ Transform:
   - {fileID: 6148817261249476838}
   - {fileID: 6148817260837897975}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6148817262166820685
 MonoBehaviour:
@@ -339,7 +339,6 @@ GameObject:
   - component: {fileID: 6148817262377244432}
   - component: {fileID: 6148817262377244435}
   - component: {fileID: 6148817262377244434}
-  - component: {fileID: 6148817262377244433}
   m_Layer: 0
   m_Name: marker enemy
   m_TagString: Untagged
@@ -412,16 +411,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6148817262377244433
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148817262377244439}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

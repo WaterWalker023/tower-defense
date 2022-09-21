@@ -8,7 +8,8 @@ public class movement : MonoBehaviour
     public float speed = 1f;
     public float livetime;
     public Rigidbody rb;
-    
+    public float starttime;
+
     float widthground = 1;
     bool newground;
     float newgroundtimer;
@@ -20,6 +21,7 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        starttime = Time.time;
         transform.position = GameObject.Find("spawn").transform.position;
         _HP = GameObject.Find("HPbalk").GetComponent<HP>();
         
@@ -30,7 +32,7 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        livetime = Time.time * speed;
+        livetime = (Time.time - starttime) * speed;
         transform.position += transform.forward * speed * Time.deltaTime;
         if (newground)
         {
@@ -41,6 +43,14 @@ public class movement : MonoBehaviour
                 newground = false;
                 newgroundtimer = 0;
             }
+        }
+    }
+    private void Update()
+    {
+        if (hp <= 0)
+        {
+            transform.position = new Vector3(500, 0, 0);
+            Destroy(gameObject, 0.5f);
         }
     }
     void OnCollisionEnter(Collision collision)
@@ -56,7 +66,8 @@ public class movement : MonoBehaviour
         {
             _HP.hp -= hp;
             hp = 0;
-            Destroy(gameObject);
+            
         }
     }
+
 }
