@@ -9,6 +9,7 @@ public class movement : MonoBehaviour
     public float livetime;
     public Rigidbody rb;
     public float starttime;
+    [SerializeField] float lastframehp;
 
     float widthground = 1;
     bool newground;
@@ -16,15 +17,17 @@ public class movement : MonoBehaviour
     float newgroundtime;
     Quaternion newgroundrotation;
     private HP _HP;
+    public placement money;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        lastframehp = hp;
         starttime = Time.time;
         transform.position = GameObject.Find("spawn").transform.position;
-        _HP = GameObject.Find("HPbalk").GetComponent<HP>();
-        
+        _HP = GameObject.Find("HP").GetComponent<HP>();
+        money = GameObject.Find("placement").GetComponent<placement>();
         rb = GetComponent<Rigidbody>();
         newgroundtime = (widthground / 2) / speed;
     }
@@ -49,9 +52,16 @@ public class movement : MonoBehaviour
     {
         if (hp <= 0)
         {
+            hp = 0;
             transform.position = new Vector3(500, 0, 0);
             Destroy(gameObject, 0.5f);
         }
+        if (lastframehp > hp)
+        {
+            money.GetComponent<placement>().money += (lastframehp - hp);
+            lastframehp = hp;
+        }
+
     }
     void OnCollisionEnter(Collision collision)
     {

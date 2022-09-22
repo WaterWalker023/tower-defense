@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6713952787895649179}
-  - component: {fileID: 6713952787895649178}
   - component: {fileID: 6713952787895649181}
+  - component: {fileID: 3514911533942711724}
   m_Layer: 0
-  m_Name: tower
-  m_TagString: tower
+  m_Name: sniper
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,21 +33,8 @@ Transform:
   - {fileID: 6713952789681465947}
   - {fileID: 6713952788587837780}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6713952787895649178
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6713952787895649176}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 0.3, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6713952787895649181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +49,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strongest: 0
   damage: 55
-  shootdelay: 1.5
+  cost: 100
+  shootdelay: 5
   reloaddelay: 0
   enemies: []
+--- !u!65 &3514911533942711724
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713952787895649176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 100, y: 0.3, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6713952788587837781
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,9 +174,10 @@ GameObject:
   - component: {fileID: 6713952789681465947}
   - component: {fileID: 6713952789681465948}
   - component: {fileID: 6713952789681465949}
+  - component: {fileID: 1848487892994802552}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,3 +247,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1848487892994802552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713952789681465944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

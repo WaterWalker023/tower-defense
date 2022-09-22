@@ -245,10 +245,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0cbc59557305894c901544b4415d85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  hp: 3
   speed: 3
   livetime: 0
   rb: {fileID: 6148817262166820686}
+  starttime: 0
+  lastframehp: 0
+  money: {fileID: 0}
 --- !u!33 &6148817262166820691
 MeshFilter:
   m_ObjectHideFlags: 0

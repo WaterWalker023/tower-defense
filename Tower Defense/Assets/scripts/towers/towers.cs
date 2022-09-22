@@ -6,8 +6,9 @@ public class towers : MonoBehaviour
 {
     [SerializeField] bool strongest;
     [SerializeField] float damage;
+    public float cost;
     [SerializeField] float shootdelay;
-    [SerializeField] float reloaddelay;
+    float reloaddelay;
     string type;
     float livetime;
     float hp;
@@ -26,34 +27,34 @@ public class towers : MonoBehaviour
         {
             if (shootdelay < reloaddelay)
             {
-            livetime = 0;
-            hp = 0;
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                if (!strongest)
+                livetime = 0;
+                hp = 0;
+                for (int i = 0; i < enemies.Count; i++)
                 {
-                    if (enemies[i].GetComponent<movement>().livetime > livetime)
+                    if (!strongest)
                     {
-                        livetime = enemies[i].GetComponent<movement>().livetime;
-                        targetenemy = enemies[i];
-                    }
-                }
-                
-                if (strongest)
-                {
-                    if(enemies[i].GetComponent <movement>().hp == hp && enemies[i].GetComponent<movement>().livetime > livetime)
+                        if (enemies[i].GetComponent<movement>().livetime > livetime)
                         {
-                            targetenemy = enemies[i];  
-                            hp = enemies[i].GetComponent<movement>().hp;
                             livetime = enemies[i].GetComponent<movement>().livetime;
-                        }
-                    if(enemies[i].GetComponent<movement>().hp > hp)
-                        {
                             targetenemy = enemies[i];
-                            hp = enemies[i].GetComponent<movement>().hp;
-                            livetime = enemies[i].GetComponent<movement>().livetime;
                         }
-                }
+                    }
+                
+                    if (strongest)
+                    {
+                        if(enemies[i].GetComponent<movement>().hp == hp && enemies[i].GetComponent<movement>().livetime > livetime)
+                            {
+                                targetenemy = enemies[i];  
+                                hp = enemies[i].GetComponent<movement>().hp;
+                                livetime = enemies[i].GetComponent<movement>().livetime;
+                            }
+                        if(enemies[i].GetComponent<movement>().hp > hp)
+                            {
+                                targetenemy = enemies[i];
+                                hp = enemies[i].GetComponent<movement>().hp;
+                                livetime = enemies[i].GetComponent<movement>().livetime;
+                            }
+                    }
 
             }
 

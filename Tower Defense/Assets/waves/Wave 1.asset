@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveEnemies:
   - {fileID: 6148817262166820688, guid: 7b5cfe77b3d06b04cbc11063a094a55f, type: 3}
+  - {fileID: 6148817262166820688, guid: 84d70a9bca4be2c4c889d4d1205f62d4, type: 3}
   - {fileID: 6148817262166820688, guid: 7b5cfe77b3d06b04cbc11063a094a55f, type: 3}
-  - {fileID: 6148817262166820688, guid: 7b5cfe77b3d06b04cbc11063a094a55f, type: 3}
-  waveAmounts: 0a0000000a0000000a000000
+  waveAmounts: 0a000000050000000a000000

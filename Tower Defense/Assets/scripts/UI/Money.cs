@@ -4,19 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class HP : MonoBehaviour
+public class Money : MonoBehaviour
 {
-    public float hp = 100;
-    [SerializeField] TMP_Text text; 
+    public float textMoney;
+    public placement money;
+    [SerializeField] TMP_Text text;
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<TMP_Text>();
+        money = GameObject.Find("placement").GetComponent<placement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = "hp ? = " + hp;
+        text.text = "$ " + money.money;
     }
 }
