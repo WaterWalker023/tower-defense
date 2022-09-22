@@ -10,7 +10,7 @@ public class movement : MonoBehaviour
     public Rigidbody rb;
     public float starttime;
     [SerializeField] float lastframehp;
-
+    bool dead;
     float widthground = 1;
     bool newground;
     float newgroundtimer;
@@ -18,7 +18,8 @@ public class movement : MonoBehaviour
     Quaternion newgroundrotation;
     private HP _HP;
     public placement money;
-    
+    [SerializeField] enemycounder _textenemycounter;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class movement : MonoBehaviour
         transform.position = GameObject.Find("spawn").transform.position;
         _HP = GameObject.Find("HP").GetComponent<HP>();
         money = GameObject.Find("placement").GetComponent<placement>();
+        _textenemycounter = GameObject.Find("textenemycountercounder").GetComponent<enemycounder>();
+        _textenemycounter.textenemycounter++;
         rb = GetComponent<Rigidbody>();
         newgroundtime = (widthground / 2) / speed;
     }
@@ -50,11 +53,13 @@ public class movement : MonoBehaviour
     }
     private void Update()
     {
-        if (hp <= 0)
+        if (hp <= 0 && !dead)
         {
             hp = 0;
             transform.position = new Vector3(500, 0, 0);
             Destroy(gameObject, 0.5f);
+            dead = true;
+            _textenemycounter.textenemycounter--;
         }
         if (lastframehp > hp)
         {
