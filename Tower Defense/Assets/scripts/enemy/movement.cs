@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class movement : MonoBehaviour
 {
     public float hp = 10f;
-    public float speed = 1f;
+    [SerializeField] float speed = 1f;
     public float livetime;
-    public Rigidbody rb;
-    public float starttime;
+    [SerializeField] Rigidbody rb;
     [SerializeField] float lastframehp;
+    float starttime;
     bool dead;
     float widthground = 1;
     bool newground;
@@ -80,8 +81,10 @@ public class movement : MonoBehaviour
         if (collision.collider.tag == "end")
         {
             _HP.hp -= hp;
-            hp = 0;
-            
+            transform.position = new Vector3(500, 0, 0);
+            Destroy(gameObject, 0.5f);
+            dead = true;
+            _textenemycounter.textenemycounter--;
         }
     }
 
