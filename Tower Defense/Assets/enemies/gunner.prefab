@@ -135,6 +135,7 @@ MonoBehaviour:
   damage: 10
   cost: 100
   shootdelay: 1.5
+  upgradeto: {fileID: 6713952787895649176, guid: e2fb0c9c084340446bfa05a5d363e668, type: 3}
   enemies: []
 --- !u!65 &3622115244189614724
 BoxCollider:
@@ -258,7 +259,7 @@ GameObject:
   - component: {fileID: 6713952789681465948}
   - component: {fileID: 6713952789681465949}
   - component: {fileID: 1848487892994802552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: tower
   m_Icon: {fileID: 0}

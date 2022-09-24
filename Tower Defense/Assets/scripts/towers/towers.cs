@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class towers : MonoBehaviour
 {
-    [SerializeField] bool strongest;
+    public bool strongest;
     [SerializeField] float damage;
     public float cost;
     [SerializeField] float shootdelay;
+    public GameObject upgradeto;
     float reloaddelay;
     string type;
     float livetime;

@@ -2367,7 +2367,7 @@ MonoBehaviour:
   _camera: {fileID: 963194227}
   layermask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   money: 100
   tower:
   - {fileID: 6713952787895649176, guid: 72717e9392130d64593558f3b4e0eed7, type: 3}
@@ -2395,7 +2395,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450679275}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3656,7 +3656,7 @@ GameObject:
   - component: {fileID: 1950128489}
   m_Layer: 7
   m_Name: ground
-  m_TagString: Untagged
+  m_TagString: greengrass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

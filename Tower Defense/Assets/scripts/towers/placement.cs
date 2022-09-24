@@ -7,8 +7,11 @@ public class placement : MonoBehaviour
     [SerializeField] Camera _camera;
     [SerializeField] LayerMask layermask;
     public float money;
+    [SerializeField] GameObject selectedtowerupgrade;
+    [SerializeField] GameObject upgrade;
     [SerializeField] List<GameObject> tower;
     [SerializeField] List<GameObject> obstacles;
+
     int selectedtower = 0;
     bool selected;
     // Start is called before the first frame update
@@ -26,10 +29,17 @@ public class placement : MonoBehaviour
         {
             transform.position = raycasthit.point;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected)
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !selected && raycasthit.collider.tag == "tower")
+        {
+            selectedtowerupgrade = raycasthit.transform.parent.gameObject;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass")
         { 
             if (tower[selectedtower].GetComponent<towers>().cost <= money)
             {
+
                 money -= tower[selectedtower].GetComponent<towers>().cost;
                 Debug.Log("click");
                 Instantiate(tower[selectedtower], new Vector3(transform.position.x, 0.257f, transform.position.z), Quaternion.identity);
@@ -41,30 +51,46 @@ public class placement : MonoBehaviour
         {
             Debug.Log("NOPE");
         }
+        if (Input.GetKeyDown(KeyCode.U) && selectedtowerupgrade != null)
+        {
+            if (selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost <= money)
+            {
+                upgrade = Instantiate(selectedtowerupgrade.GetComponent<towers>().upgradeto, new Vector3(selectedtowerupgrade.transform.position.x, selectedtowerupgrade.transform.position.y, selectedtowerupgrade.transform.position.z), Quaternion.identity);
+                upgrade.GetComponent<towers>().strongest = selectedtowerupgrade.GetComponent<towers>().strongest;
+                Destroy(selectedtowerupgrade);
+                selectedtowerupgrade = upgrade;
+                upgrade = null;
+            }
+            //upgrade = selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost;
+        }
 
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedtower = 0;
             selected = true;
+            selectedtowerupgrade = null;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             selectedtower = 1;
             selected = true;
+            selectedtowerupgrade = null;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             selectedtower = 2;
             selected = true;
+            selectedtowerupgrade = null;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             selectedtower = 3;
             selected = true;
+            selectedtowerupgrade = null;
         }
 
     }

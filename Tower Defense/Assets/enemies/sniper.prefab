@@ -49,9 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strongest: 0
   damage: 55
-  cost: 100
+  cost: 99
   shootdelay: 5
-  reloaddelay: 0
+  upgradeto: {fileID: 6713952787895649176, guid: 72717e9392130d64593558f3b4e0eed7, type: 3}
   enemies: []
 --- !u!65 &3514911533942711724
 BoxCollider:
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 6713952789681465948}
   - component: {fileID: 6713952789681465949}
   - component: {fileID: 1848487892994802552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: tower
   m_Icon: {fileID: 0}
