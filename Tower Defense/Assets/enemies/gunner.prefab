@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strongest: 0
-  damage: 10
+  damage: 5
   cost: 100
   shootdelay: 1.5
   upgradeto: {fileID: 6713952787895649176, guid: e2fb0c9c084340446bfa05a5d363e668, type: 3}

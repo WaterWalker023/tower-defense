@@ -8,6 +8,7 @@ TagManager:
   - end
   - enemie
   - tower
+  - greengrass
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - path
   - ground
   - tower
-  - 
+  - enenmies
   - 
   - 
   - 

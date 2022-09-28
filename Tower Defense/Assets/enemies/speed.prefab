@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6148817260837897970}
   - component: {fileID: 6148817260837897969}
   - component: {fileID: 6148817260837897968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6148817261249476833}
   - component: {fileID: 6148817261249476832}
   - component: {fileID: 6148817261249476839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 6148817262166820690}
   - component: {fileID: 6148817262166820689}
   - component: {fileID: 6148817262166820686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: speed
   m_TagString: enemie
   m_Icon: {fileID: 0}
@@ -249,9 +249,9 @@ MonoBehaviour:
   speed: 3
   livetime: 0
   rb: {fileID: 6148817262166820686}
-  starttime: 0
   lastframehp: 0
   money: {fileID: 0}
+  _textenemycounter: {fileID: 0}
 --- !u!33 &6148817262166820691
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 6148817262377244435}
   - component: {fileID: 6148817262377244434}
   - component: {fileID: 6148817262377244433}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: marker enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

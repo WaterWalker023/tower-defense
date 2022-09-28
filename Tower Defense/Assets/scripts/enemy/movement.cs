@@ -20,11 +20,13 @@ public class movement : MonoBehaviour
     private HP _HP;
     public placement money;
     [SerializeField] enemycounder _textenemycounter;
+    public float maxhp;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        maxhp = hp;
         lastframehp = hp;
         starttime = Time.time;
         transform.position = GameObject.Find("spawn").transform.position;

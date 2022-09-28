@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class placement : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class placement : MonoBehaviour
     public float money;
     [SerializeField] GameObject selectedtowerupgrade;
     [SerializeField] GameObject upgrade;
-    [SerializeField] List<GameObject> tower;
+    public List<GameObject> tower;
     [SerializeField] List<GameObject> obstacles;
+    [SerializeField] Slider enemiebar;
 
     int selectedtower = 0;
     bool selected;
@@ -29,13 +31,19 @@ public class placement : MonoBehaviour
         {
             transform.position = raycasthit.point;
         }
-        
+        /*
+        if (raycasthit.collider.tag == "enemie")
+        {
+            enemiebar.maxValue = raycasthit.transform.gameObject.GetComponent<movement>().maxhp;
+            enemiebar.value = raycasthit.transform.gameObject.GetComponent<movement>().hp;
+            Debug.Log("test");
+        }
+        */
         if (Input.GetKeyDown(KeyCode.Mouse0) && !selected && raycasthit.collider.tag == "tower")
         {
             selectedtowerupgrade = raycasthit.transform.parent.gameObject;
         }
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass")
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass")
         { 
             if (tower[selectedtower].GetComponent<towers>().cost <= money)
             {
@@ -47,19 +55,23 @@ public class placement : MonoBehaviour
             }
             
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0)
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0)
         {
             Debug.Log("NOPE");
         }
-        if (Input.GetKeyDown(KeyCode.U) && selectedtowerupgrade != null)
+
+        if (Input.GetKeyDown(KeyCode.U))
         {
+            Debug.Log("1");
             if (selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost <= money)
             {
                 upgrade = Instantiate(selectedtowerupgrade.GetComponent<towers>().upgradeto, new Vector3(selectedtowerupgrade.transform.position.x, selectedtowerupgrade.transform.position.y, selectedtowerupgrade.transform.position.z), Quaternion.identity);
                 upgrade.GetComponent<towers>().strongest = selectedtowerupgrade.GetComponent<towers>().strongest;
+                money -= selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost;
                 Destroy(selectedtowerupgrade);
                 selectedtowerupgrade = upgrade;
                 upgrade = null;
+                Debug.Log("2");
             }
             //upgrade = selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost;
         }
