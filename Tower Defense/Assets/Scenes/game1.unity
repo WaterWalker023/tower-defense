@@ -4338,7 +4338,8 @@ MonoBehaviour:
   - {fileID: 6713952787895649176, guid: 72717e9392130d64593558f3b4e0eed7, type: 3}
   - {fileID: 6713952787895649176, guid: e2fb0c9c084340446bfa05a5d363e668, type: 3}
   obstacles: []
-  enemiebar: {fileID: 1778406420}
+  enemieslider: {fileID: 1778406420}
+  enemiesbar: {fileID: 1778406418}
 --- !u!135 &1450679277
 SphereCollider:
   m_ObjectHideFlags: 0

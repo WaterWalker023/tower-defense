@@ -12,7 +12,8 @@ public class placement : MonoBehaviour
     [SerializeField] GameObject upgrade;
     public List<GameObject> tower;
     [SerializeField] List<GameObject> obstacles;
-    [SerializeField] Slider enemiebar;
+    [SerializeField] Slider enemieslider;
+    [SerializeField] GameObject enemiesbar;
 
     int selectedtower = 0;
     bool selected;
@@ -30,34 +31,37 @@ public class placement : MonoBehaviour
         if (Physics.Raycast(place, out RaycastHit raycasthit, float.MaxValue, layermask))
         {
             transform.position = raycasthit.point;
-        }
-        /*
-        if (raycasthit.collider.tag == "enemie")
-        {
-            enemiebar.maxValue = raycasthit.transform.gameObject.GetComponent<movement>().maxhp;
-            enemiebar.value = raycasthit.transform.gameObject.GetComponent<movement>().hp;
-            Debug.Log("test");
-        }
-        */
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !selected && raycasthit.collider.tag == "tower")
-        {
-            selectedtowerupgrade = raycasthit.transform.parent.gameObject;
-        }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass")
-        { 
-            if (tower[selectedtower].GetComponent<towers>().cost <= money)
-            {
 
-                money -= tower[selectedtower].GetComponent<towers>().cost;
-                Debug.Log("click");
-                Instantiate(tower[selectedtower], new Vector3(transform.position.x, 0.257f, transform.position.z), Quaternion.identity);
-                selected = false;
+            enemiesbar.SetActive(false);
+            if (raycasthit.collider.tag == "enemie")
+            {
+                enemiesbar.SetActive(true);
+                enemiesbar.transform.position = _camera.WorldToScreenPoint(raycasthit.point);
+                enemieslider.maxValue = raycasthit.transform.gameObject.GetComponent<movement>().maxhp;
+                enemieslider.value = raycasthit.transform.gameObject.GetComponent<movement>().hp;
+                Debug.Log("test");
             }
+        
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !selected && raycasthit.collider.tag == "tower")
+            {
+                selectedtowerupgrade = raycasthit.transform.parent.gameObject;
+            }
+            else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass")
+            { 
+                if (tower[selectedtower].GetComponent<towers>().cost <= money)
+                {
+
+                    money -= tower[selectedtower].GetComponent<towers>().cost;
+                    Debug.Log("click");
+                    Instantiate(tower[selectedtower], new Vector3(transform.position.x, 0.257f, transform.position.z), Quaternion.identity);
+                    selected = false;
+                }
             
-        }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0)
-        {
-            Debug.Log("NOPE");
+            }
+            else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0)
+            {
+                Debug.Log("NOPE");
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.U))
