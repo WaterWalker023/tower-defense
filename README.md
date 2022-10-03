@@ -6,8 +6,8 @@
 ### upgranden
 ### torens attack
 ### enemy kill = money 
-
-graph TD
+```mermaid
+flowchart TD
     A((tower placed)) -->B(remove money)
     B --> C{are enemies in ranch}
     C -->|no| C
