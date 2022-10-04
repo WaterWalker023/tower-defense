@@ -34,6 +34,7 @@ public class EnemySpawn : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
             Debug.Log("part done");
+
         }
         
         Debug.Log("wave done");  
