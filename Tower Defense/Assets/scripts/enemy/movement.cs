@@ -8,9 +8,9 @@ public class movement : MonoBehaviour
     public float hp = 10f;
     [SerializeField] float speed = 1f;
     public float livetime;
+    float starttime;
     [SerializeField] Rigidbody rb;
     [SerializeField] float lastframehp;
-    float starttime;
     bool dead;
     float widthground = 1;
     bool newground;
@@ -75,6 +75,7 @@ public class movement : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
+            
             newground = true;
             newgroundrotation = collision.transform.rotation;
             

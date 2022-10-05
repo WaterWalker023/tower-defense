@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class placement : MonoBehaviour
 {
     [SerializeField] Camera _camera;
     [SerializeField] LayerMask layermask;
     public float money;
-    [SerializeField] GameObject selectedtowerupgrade;
+    public GameObject selectedtowerupgrade;
     [SerializeField] GameObject upgrade;
     public List<GameObject> tower;
     [SerializeField] List<GameObject> obstacles;
     [SerializeField] Slider enemieslider;
     [SerializeField] GameObject enemiesbar;
+    [SerializeField] GameObject upgrademenu;
+    public bool upgradebutton;
 
-    int selectedtower = 0;
-    bool selected;
+    public int selectedtower = 0;
+    public bool selected;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +32,11 @@ public class placement : MonoBehaviour
     {
 
         Ray place = _camera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(place, out RaycastHit raycasthit, float.MaxValue, layermask))
+        /*if (GraphicRaycaster(place, out RaycastHit test, float.MaxValue, layermask))
+        {
+            Debug.Log("tst");
+        }*/
+        if (Physics.Raycast(place, out RaycastHit raycasthit, float.MaxValue, layermask))  
         {
             transform.position = raycasthit.point;
 
@@ -39,14 +47,14 @@ public class placement : MonoBehaviour
                 enemiesbar.transform.position = _camera.WorldToScreenPoint(raycasthit.point);
                 enemieslider.maxValue = raycasthit.transform.gameObject.GetComponent<movement>().maxhp;
                 enemieslider.value = raycasthit.transform.gameObject.GetComponent<movement>().hp;
-                Debug.Log("test");
+                
             }
         
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !selected && raycasthit.collider.tag == "tower")
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !selected && raycasthit.collider.tag == "tower" && !EventSystem.current.IsPointerOverGameObject())
             {
                 selectedtowerupgrade = raycasthit.transform.parent.gameObject;
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass")
+            if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass" && !EventSystem.current.IsPointerOverGameObject())
             { 
                 if (tower[selectedtower].GetComponent<towers>().cost <= money)
                 {
@@ -58,14 +66,16 @@ public class placement : MonoBehaviour
                 }
             
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0 && !EventSystem.current.IsPointerOverGameObject())
             {
                 Debug.Log("NOPE");
+
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.U) || upgradebutton)
         {
+            upgradebutton = false;
             Debug.Log("1");
             if (selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost <= money)
             {
@@ -78,6 +88,14 @@ public class placement : MonoBehaviour
                 Debug.Log("2");
             }
             //upgrade = selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost;
+        }
+        upgrademenu.SetActive(false);
+        if (selectedtowerupgrade)
+        {
+            upgrademenu.SetActive(true);
+            upgrademenu.gameObject.transform.Find("Text (TMP)").gameObject.GetComponent<TMP_Text>().text = selectedtowerupgrade.gameObject.name.Replace("(Clone)", "");
+            upgrademenu.gameObject.transform.Find("furthest").gameObject.transform.Find("Text (TMP)").gameObject.GetComponent<TMP_Text>().text = selectedtowerupgrade.GetComponent<towers>().strongest;
+            upgrademenu.gameObject.transform.Find("upgrade").gameObject.transform.Find("Text (TMP)").gameObject.GetComponent<TMP_Text>().text = selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost + "";
         }
 
 

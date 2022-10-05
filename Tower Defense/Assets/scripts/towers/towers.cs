@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class towers : MonoBehaviour
 {
-    public bool strongest;
+    public string strongest;
     [SerializeField] float damage;
     public float cost;
     [SerializeField] float shootdelay;
@@ -18,6 +18,7 @@ public class towers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        strongest = "first";
         type = gameObject.name;
     }
 
@@ -32,8 +33,10 @@ public class towers : MonoBehaviour
                 hp = 0;
                 for (int i = 0; i < enemies.Count; i++)
                 {
-                    if (!strongest)
+                    Debug.Log("0");
+                    if (strongest == "first")
                     {
+                        Debug.Log("1");
                         if (enemies[i].GetComponent<movement>().livetime > livetime)
                         {
                             livetime = enemies[i].GetComponent<movement>().livetime;
@@ -41,9 +44,10 @@ public class towers : MonoBehaviour
                         }
                     }
                 
-                    if (strongest)
+                    if (strongest == "strongest")
                     {
-                        if(enemies[i].GetComponent<movement>().hp == hp && enemies[i].GetComponent<movement>().livetime > livetime)
+                        Debug.Log("2");
+                        if (enemies[i].GetComponent<movement>().hp == hp && enemies[i].GetComponent<movement>().livetime > livetime)
                             {
                                 targetenemy = enemies[i];  
                                 hp = enemies[i].GetComponent<movement>().hp;
@@ -56,8 +60,24 @@ public class towers : MonoBehaviour
                                 livetime = enemies[i].GetComponent<movement>().livetime;
                             }
                     }
-
-            }
+                    if (strongest == "weakest")
+                    {
+                        Debug.Log("3");
+                        if (hp == 0) hp = 9999;
+                        if (enemies[i].GetComponent<movement>().hp == hp && enemies[i].GetComponent<movement>().livetime > livetime)
+                        {
+                            targetenemy = enemies[i];
+                            hp = enemies[i].GetComponent<movement>().hp;
+                            livetime = enemies[i].GetComponent<movement>().livetime;
+                        }
+                        if (enemies[i].GetComponent<movement>().hp < hp)
+                        {
+                            targetenemy = enemies[i];
+                            hp = enemies[i].GetComponent<movement>().hp;
+                            livetime = enemies[i].GetComponent<movement>().livetime;
+                        }
+                    }
+                }
 
             targetenemy.GetComponent<movement>().hp += -damage;
             targetenemy = null;
