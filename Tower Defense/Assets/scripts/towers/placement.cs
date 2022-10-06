@@ -52,7 +52,9 @@ public class placement : MonoBehaviour
         
             if (Input.GetKeyDown(KeyCode.Mouse0) && !selected && raycasthit.collider.tag == "tower" && !EventSystem.current.IsPointerOverGameObject())
             {
+                if (selectedtowerupgrade) {selectedtowerupgrade.GetComponent<MeshRenderer>().forceRenderingOff = true;}
                 selectedtowerupgrade = raycasthit.transform.parent.gameObject;
+                selectedtowerupgrade.GetComponent<MeshRenderer>().forceRenderingOff = false;
             }
             if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count == 0 && selected && raycasthit.collider.tag == "greengrass" && !EventSystem.current.IsPointerOverGameObject())
             { 
@@ -61,7 +63,7 @@ public class placement : MonoBehaviour
 
                     money -= tower[selectedtower].GetComponent<towers>().cost;
                     Debug.Log("click");
-                    Instantiate(tower[selectedtower], new Vector3(transform.position.x, 0.257f, transform.position.z), Quaternion.identity);
+                    selectedtowerupgrade = Instantiate(tower[selectedtower], new Vector3(transform.position.x, 0.257f, transform.position.z), Quaternion.identity);
                     selected = false;
                 }
             
@@ -83,6 +85,7 @@ public class placement : MonoBehaviour
                 upgrade.GetComponent<towers>().strongest = selectedtowerupgrade.GetComponent<towers>().strongest;
                 money -= selectedtowerupgrade.GetComponent<towers>().upgradeto.GetComponent<towers>().cost;
                 Destroy(selectedtowerupgrade);
+                upgrade.GetComponent<MeshRenderer>().forceRenderingOff = false;
                 selectedtowerupgrade = upgrade;
                 upgrade = null;
                 Debug.Log("2");
@@ -92,6 +95,7 @@ public class placement : MonoBehaviour
         upgrademenu.SetActive(false);
         if (selectedtowerupgrade)
         {
+
             upgrademenu.SetActive(true);
             upgrademenu.gameObject.transform.Find("Text (TMP)").gameObject.GetComponent<TMP_Text>().text = selectedtowerupgrade.gameObject.name.Replace("(Clone)", "");
             upgrademenu.gameObject.transform.Find("furthest").gameObject.transform.Find("Text (TMP)").gameObject.GetComponent<TMP_Text>().text = selectedtowerupgrade.GetComponent<towers>().strongest;
@@ -103,6 +107,7 @@ public class placement : MonoBehaviour
         {
             selectedtower = 0;
             selected = true;
+            selectedtowerupgrade.GetComponent<MeshRenderer>().forceRenderingOff = true;
             selectedtowerupgrade = null;
         }
 
@@ -110,6 +115,7 @@ public class placement : MonoBehaviour
         {
             selectedtower = 1;
             selected = true;
+            selectedtowerupgrade.GetComponent<MeshRenderer>().forceRenderingOff = true;
             selectedtowerupgrade = null;
         }
 
@@ -117,6 +123,7 @@ public class placement : MonoBehaviour
         {
             selectedtower = 2;
             selected = true;
+            selectedtowerupgrade.GetComponent<MeshRenderer>().forceRenderingOff = true;
             selectedtowerupgrade = null;
         }
 
@@ -124,6 +131,7 @@ public class placement : MonoBehaviour
         {
             selectedtower = 3;
             selected = true;
+            selectedtowerupgrade.GetComponent<MeshRenderer>().forceRenderingOff = true;
             selectedtowerupgrade = null;
         }
 

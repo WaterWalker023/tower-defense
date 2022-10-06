@@ -4437,10 +4437,10 @@ MonoBehaviour:
   selectedtowerupgrade: {fileID: 0}
   upgrade: {fileID: 0}
   tower:
-  - {fileID: 6713952787895649176, guid: 72717e9392130d64593558f3b4e0eed7, type: 3}
-  - {fileID: 6713952787895649176, guid: e2fb0c9c084340446bfa05a5d363e668, type: 3}
-  - {fileID: 6713952787895649176, guid: 72717e9392130d64593558f3b4e0eed7, type: 3}
-  - {fileID: 6713952787895649176, guid: e2fb0c9c084340446bfa05a5d363e668, type: 3}
+  - {fileID: 856664898415826609, guid: ae4bde3e918ffbe41a52a88ba0676dcd, type: 3}
+  - {fileID: 2460729049419827574, guid: 821fc1d57cdad6a4aa84fa913b33b2f5, type: 3}
+  - {fileID: 856664898415826609, guid: ae4bde3e918ffbe41a52a88ba0676dcd, type: 3}
+  - {fileID: 2460729049419827574, guid: 821fc1d57cdad6a4aa84fa913b33b2f5, type: 3}
   obstacles: []
   enemieslider: {fileID: 1778406420}
   enemiesbar: {fileID: 1778406418}
