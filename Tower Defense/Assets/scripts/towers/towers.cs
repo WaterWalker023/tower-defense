@@ -33,10 +33,8 @@ public class towers : MonoBehaviour
                 hp = 0;
                 for (int i = 0; i < enemies.Count; i++)
                 {
-                    Debug.Log("0");
                     if (strongest == "first")
                     {
-                        Debug.Log("1");
                         if (enemies[i].GetComponent<movement>().livetime > livetime)
                         {
                             livetime = enemies[i].GetComponent<movement>().livetime;
@@ -46,7 +44,6 @@ public class towers : MonoBehaviour
                 
                     if (strongest == "strongest")
                     {
-                        Debug.Log("2");
                         if (enemies[i].GetComponent<movement>().hp == hp && enemies[i].GetComponent<movement>().livetime > livetime)
                             {
                                 targetenemy = enemies[i];  
@@ -62,7 +59,6 @@ public class towers : MonoBehaviour
                     }
                     if (strongest == "weakest")
                     {
-                        Debug.Log("3");
                         if (hp == 0) hp = 9999;
                         if (enemies[i].GetComponent<movement>().hp == hp && enemies[i].GetComponent<movement>().livetime > livetime)
                         {

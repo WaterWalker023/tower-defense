@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b875a379ac0036544ba8a72dd7aa26dd, type: 3}
-  m_Name: Wave 2
+  m_Name: prewave
   m_EditorClassIdentifier: 
   waveDuration: 60
-  waveRate: 1
-  waveEnemies:
-  - {fileID: 6148817262166820688, guid: 84d70a9bca4be2c4c889d4d1205f62d4, type: 3}
-  - {fileID: 6148817262166820688, guid: 7b5cfe77b3d06b04cbc11063a094a55f, type: 3}
-  - {fileID: 6148817262166820688, guid: 84d70a9bca4be2c4c889d4d1205f62d4, type: 3}
-  waveAmounts: 0a0000000a0000000a000000
+  waveRate: 0
+  waveEnemies: []
+  waveAmounts: 
