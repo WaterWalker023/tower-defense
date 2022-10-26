@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b875a379ac0036544ba8a72dd7aa26dd, type: 3}
-  m_Name: Wave 1
+  m_Name: Wave 4
   m_EditorClassIdentifier: 
-  waveDuration: 80
-  waveRate: 4
-  waveEnemies:
-  - {fileID: 6148817262166820688, guid: 62598a03f61caff47ae2ec67cc8d2432, type: 3}
-  waveAmounts: 0f000000
+  waveDuration: 0
+  waveRate: 0
+  waveEnemies: []
+  waveAmounts: 

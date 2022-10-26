@@ -7,6 +7,7 @@ public class movement : MonoBehaviour
 {
     public float hp = 10f;
     [SerializeField] float speed = 1f;
+    [SerializeField] float timetonext;
     public float livetime;
     float starttime;
     [SerializeField] Rigidbody rb;

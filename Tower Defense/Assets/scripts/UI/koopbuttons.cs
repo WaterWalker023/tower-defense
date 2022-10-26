@@ -14,7 +14,7 @@ public class koopbuttons : MonoBehaviour
     {
         text = GetComponent<TMP_Text>();
         _placement = GameObject.Find("placement");
-        text.text = _placement.GetComponent<placement>().tower[buttonnumber].GetComponent<towers>().cost + "\n" + _placement.GetComponent<placement>().tower[buttonnumber].name;//.transform.gameObject.name;
+        text.text = _placement.GetComponent<placement>().tower[buttonnumber].transform.GetChild(0).GetComponent<towers>().cost + "\n" + _placement.GetComponent<placement>().tower[buttonnumber].name;
             
     }
 

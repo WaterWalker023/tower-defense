@@ -76,6 +76,7 @@ public class towers : MonoBehaviour
                 }
 
             targetenemy.GetComponent<movement>().hp += -damage;
+            transform.parent.Find("gunner visible").LookAt(targetenemy.transform);
             targetenemy = null;
             reloaddelay = 0;
            

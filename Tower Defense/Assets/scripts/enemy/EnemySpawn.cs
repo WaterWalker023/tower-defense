@@ -44,6 +44,6 @@ public class EnemySpawn : MonoBehaviour
 
         }
         
-        Debug.Log("wave done");  
+        Debug.Log("wave done");
     }
 }
