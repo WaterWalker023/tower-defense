@@ -69,9 +69,17 @@ public class placement : MonoBehaviour
                 }
             
             }
-            if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0 && !EventSystem.current.IsPointerOverGameObject() && !(raycasthit.collider.tag == "tower"))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && obstacles.Count != 0 && !EventSystem.current.IsPointerOverGameObject() && selected)
             {
                 GameObject.Find("cantplacehere").GetComponent<cantplace>().error = true;
+            }
+            if (selected)
+            {
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+            }
+            else
+            {
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
         }
 

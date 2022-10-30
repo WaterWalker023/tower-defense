@@ -14,6 +14,7 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         waveDuration = waves.waveDuration;
+        StartCoroutine(wavestart());
     }
 
 

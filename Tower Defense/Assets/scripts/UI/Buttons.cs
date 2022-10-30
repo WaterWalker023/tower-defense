@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Buttons : MonoBehaviour
 {
+    [SerializeField] int buttonFunction;
     [SerializeField] int buttontype;
     GameObject _placement;
+    [SerializeField] Image image;
+    [SerializeField] Material materials;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +20,17 @@ public class Buttons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (buttonFunction == 1)
+        {
+            if (_placement.GetComponent<placement>().tower[buttontype].transform.GetChild(0).GetComponent<towers>().cost > _placement.GetComponent<placement>().money)
+            {
+                image.color = new Color(0.7f,0.7f,0.7f,0.7f);
+            }
+            else
+            {
+                image.color = new Color(1f, 1f, 1f, 1f);
+            }
+        }
     }
     public void place()
     {

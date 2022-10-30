@@ -15,5 +15,5 @@ MonoBehaviour:
   waveDuration: 80
   waveRate: 4
   waveEnemies:
-  - {fileID: 6148817262166820688, guid: 62598a03f61caff47ae2ec67cc8d2432, type: 3}
-  waveAmounts: 0f000000
+  - {fileID: 6148817262166820688, guid: 7b5cfe77b3d06b04cbc11063a094a55f, type: 3}
+  waveAmounts: 0a000000

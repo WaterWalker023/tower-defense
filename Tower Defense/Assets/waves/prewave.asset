@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: prewave
   m_EditorClassIdentifier: 
   waveDuration: 60
-  waveRate: 0
-  waveEnemies: []
-  waveAmounts: 
+  waveRate: 1
+  waveEnemies:
+  - {fileID: 6148817262166820688, guid: 8c4578ee789204e479edcb0ad71eb3e3, type: 3}
+  waveAmounts: 03000000

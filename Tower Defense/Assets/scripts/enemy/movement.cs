@@ -22,6 +22,7 @@ public class movement : MonoBehaviour
     public placement money;
     [SerializeField] enemycounder _textenemycounter;
     public float maxhp;
+    [SerializeField] bool immortal;
 
 
     // Start is called before the first frame update
@@ -34,7 +35,10 @@ public class movement : MonoBehaviour
         _HP = GameObject.Find("HP").GetComponent<HP>();
         money = GameObject.Find("placement").GetComponent<placement>();
         _textenemycounter = GameObject.Find("textenemycountercounder").GetComponent<enemycounder>();
-        _textenemycounter.textenemycounter++;
+        if (!immortal)
+        {
+            _textenemycounter.textenemycounter++;
+        }
         rb = GetComponent<Rigidbody>();
         newgroundtime = (widthground / 2) / speed;
     }
@@ -57,13 +61,16 @@ public class movement : MonoBehaviour
     }
     private void Update()
     {
-        if (hp <= 0 && !dead)
+        if (hp <= 0 && !dead && !immortal)
         {
             hp = 0;
             transform.position = new Vector3(500, 0, 0);
             Destroy(gameObject, 0.5f);
             dead = true;
+            if (!immortal)
+            {
             _textenemycounter.textenemycounter--;
+            }
         }
         if (lastframehp > hp)
         {
@@ -88,7 +95,10 @@ public class movement : MonoBehaviour
             transform.position = new Vector3(500, 0, 0);
             Destroy(gameObject, 0.5f);
             dead = true;
-            _textenemycounter.textenemycounter--;
+            if (!immortal)
+            {
+                _textenemycounter.textenemycounter--;
+            }
         }
     }
 

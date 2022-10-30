@@ -32,7 +32,7 @@ public class towers : MonoBehaviour
                 livetime = 0;
                 hp = 0;
                 for (int i = 0; i < enemies.Count; i++)
-                {
+                { 
                     if (strongest == "first")
                     {
                         if (enemies[i].GetComponent<movement>().livetime > livetime)

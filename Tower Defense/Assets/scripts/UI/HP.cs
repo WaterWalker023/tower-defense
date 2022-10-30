@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
@@ -18,5 +19,9 @@ public class HP : MonoBehaviour
     void Update()
     {
         text.text = "" + hp;
+        if (hp <= 0)
+        {
+            SceneManager.LoadScene("death");
+        }
     }
 }
