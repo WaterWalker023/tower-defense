@@ -1,11 +1,13 @@
-﻿# tower defense
+# tower defense
+## Eigen mechanic 1 (tower upgraden):
+### als speler wil ik mijn torens sterker kunnen maken
+### als speler wil ik kunnen zien dat mijn torens sterker zijn
+### als programmeur wil ik eenvoudig nieuwe upgrades kunnen toevoegen
 
-## Mechanics
-### plaatsen van torens
-### wave susteem
-### upgranden
-### torens attack
-### enemy kill = money 
+## Eigen mechanic 2 (minimap):
+### als speler wil ik kunnen zien waar mijn enemies naartoe lopen 
+### als speler wil ik een overzicht hebben van de locaties van de enemies 
+### als programmeur wil ik dat als het pad veranderd dat het dan automatisch mee veranderd in de minimap
 ```mermaid
 flowchart TD
     A((tower placed)) -->B(remove money)
